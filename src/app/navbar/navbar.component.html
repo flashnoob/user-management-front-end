@@ -1,0 +1,18 @@
+<mat-toolbar color="primary" >
+    <span>Crud App</span>
+  
+    <span class="fill-remaining-space"></span>
+  
+    <a routerLink="" mat-button   *ngIf="loggedIn">
+      <mat-icon aria-label="Go to source code">home</mat-icon>
+      home
+    </a>
+    <a routerLink="create" mat-button  *ngIf="loggedIn">
+      <mat-icon aria-label="Go to source code">create</mat-icon>
+      create
+    </a>
+    <a routerLink="signup" mat-button  *ngIf="loggedIn">
+      <mat-icon aria-label="Go to source code">how_to_reg</mat-icon>
+      signup
+    </a>
+  </mat-toolbar>

@@ -1,4 +1,6 @@
 export interface Error {
+  success?: boolean;
   error?: string;
-    message?:string
+    message?:string,
+    token?:string
 }

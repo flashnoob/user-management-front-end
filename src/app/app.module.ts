@@ -1,10 +1,11 @@
+import { AuthGuard } from './guards/auth-guard.service';
+import { AuthService } from './shared/auth.service';
 import { MainService } from './shared/main.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import  {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { MatPasswordStrengthModule } from '@angular-material-extensions/password-strength';
-
 import {
   MatButtonModule} from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -37,6 +38,9 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoaderComponent } from './shared/loader/loader.component';
 import { LoaderService } from './shared/loader.service';
 import { LoaderInterceptor } from './loader.interceptor';
+import { LoginComponent } from './login/login.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { NavbarComponent } from './navbar/navbar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +51,10 @@ import { LoaderInterceptor } from './loader.interceptor';
     NewCategoryDialogComponent,
     MaxCharPipe,
     SignupComponent,
-    LoaderComponent
+    LoaderComponent,
+    LoginComponent,
+    PageNotFoundComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +78,7 @@ import { LoaderInterceptor } from './loader.interceptor';
     MatRadioModule,
     MatSnackBarModule,
   ],
-  providers: [LoaderService,ArticleService, CategoryService, MainService,    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }
+  providers: [LoaderService,ArticleService, CategoryService, MainService,AuthGuard,    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },AuthService
   ],
   bootstrap: [AppComponent],
   entryComponents: [ConfirmDialogComponent, NewCategoryDialogComponent]

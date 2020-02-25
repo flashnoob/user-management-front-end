@@ -1,9 +1,12 @@
+import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class MainService {
-  _URL = 'http://localhost:3000'
+
+  _URL = environment.url;
+
   constructor(private http: HttpClient) { }
 
 
